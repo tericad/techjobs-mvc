@@ -47,7 +47,7 @@
         <table class="job-listing">
             <tr th:each="item, idx : ${job}" th:class="${idx.odd} ? 'odd'">
                 <td th:text="${#strings.capitalizeWords(item.key)}"></td>
-                <td><a th:href="@{search/results/jobs(column=${column},value=${item})}" th:text="${item.value}"></a></td>
+                <td><a th:href="@{~/list/values/(column=${item.key},value=${item.value})}" th:text="${item.value}"></a></td>
             </tr>
         </table>
 
