@@ -17,7 +17,7 @@ import static org.launchcode.models.JobData.findByValue;
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController extends TechJobsController{
 
     @RequestMapping(value = "")
     public String search(Model model) {
