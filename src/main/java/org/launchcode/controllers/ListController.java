@@ -31,6 +31,11 @@ public class ListController extends TechJobsController {
 
         if (column.equals("all")) {
             ArrayList<HashMap<String, String>> jobs = JobData.findAll();
+            int results = 0;
+            for (HashMap<String, String> job : jobs){
+                results += 1;
+            }
+            model.addAttribute("results", results);
             model.addAttribute("title", "All Jobs");
             model.addAttribute("jobs", jobs);
             return "list-jobs";
