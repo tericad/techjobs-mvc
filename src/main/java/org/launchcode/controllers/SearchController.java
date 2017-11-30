@@ -29,6 +29,7 @@ public class SearchController extends TechJobsController{
     @RequestMapping(value ="results")
     public String search(Model model, @RequestParam String searchType, String searchTerm){
         ArrayList<HashMap<String,String>> jobs = new ArrayList<>();
+        int results = 0;
 
         if (searchType.equals("all")){
            jobs = findByValue(searchTerm);
@@ -37,6 +38,10 @@ public class SearchController extends TechJobsController{
             jobs = findByColumnAndValue(searchType,searchTerm);
         }
 
+        for (HashMap<String, String> job : jobs){
+            results += 1;
+        }
+        model.addAttribute("results", results);
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", ListController.columnChoices);
         model.addAttribute("searchType",searchType);
